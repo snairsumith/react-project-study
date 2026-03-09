@@ -75,19 +75,34 @@ npm run dev    # or yarn dev / pnpm dev
 
 ## Daily entries
 
-### Day 1 — (Add date)
+### Day 1 — 9 Mar 2025
 
-## **Topics covered**
+**Topics covered**
+- React + Vite project setup
+- Project structure and running the app
+- Components and pages (Home, Login, Button)
+- Basic state with `useState`
 
-## **Key points / concepts**
+**Key points / concepts**
+- Vite is the build tool; use `npm run dev` to start dev server
+- Components go in `src/components/`, pages in `src/pages/`
+- `useState` holds state; pass props (e.g. `count`, `handleClick`) to child components
 
-## **Code / examples**
+**Code / examples**
+- Creating app: `npm create vite@latest my-app -- --template react` (see Reference section above)
+- `App.tsx`: importing components, using `useState`, passing props to `<Button />`
 
-## **Exercises / hands-on**
+**Exercises / hands-on**
+- Clone repo and run `npm install` then `npm run dev`
+- Toggle `<Home />` / `<Login />` in `App.tsx` to view different pages
+- Use the Button component with count and click handler
 
-## **Notes / tips**
+**Notes / tips**
+- Keep components small and in their own files
+- Use the Reference section in this doc for Vite create commands
 
-## **Next session**
+**Next session**
+- (Add planned topics for next class)
 
 ---
 
