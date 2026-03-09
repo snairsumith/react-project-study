@@ -15,6 +15,34 @@ Run / clone: [https://github.com/snairsumith/react-project-study.git](https://gi
 
 ---
 
+## Reference: Create React + Vite project
+
+Use one of these commands (replace `my-app` with your project name):
+
+**npm**
+```bash
+npm create vite@latest my-app -- --template react
+```
+
+**yarn**
+```bash
+yarn create vite my-app --template react
+```
+
+**pnpm**
+```bash
+pnpm create vite my-app --template react
+```
+
+Then go into the project and run:
+```bash
+cd my-app
+npm install    # or yarn install / pnpm install
+npm run dev    # or yarn dev / pnpm dev
+```
+
+---
+
 ## Day template (copy for each day)
 
 ```markdown
