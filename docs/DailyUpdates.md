@@ -106,4 +106,39 @@ npm run dev    # or yarn dev / pnpm dev
 
 ---
 
+### Day 2 — 10 Mar 2025
+
+**Topics covered**
+- Filterable Product Table (Thinking in React): search + “in stock only” filter
+- Lifting state up: keeping filter state in parent, passing as props to SearchBar and ProductTable
+- Controlled inputs: text and checkbox tied to state
+- TypeScript interfaces for props and product data
+- Component structure: page → SearchBar, ProductTable → ProductCategoryRow, ProductRow
+
+**Key points / concepts**
+- State lives in the lowest common parent that needs it; pass state and handlers down as props (e.g. `filterText`, `handleFilterTextChange`)
+- Controlled input: `value` / `checked` from state; `onChange` updates state
+- Product shape: `category`, `price`, `stocked`, `name` (in `src/utils/product.ts`)
+- Filter in the component that renders the list: filter by name (case-insensitive) and by `stocked` when checkbox is on
+
+**Code / examples**
+- `FilterableProductTable.tsx`: `useState` for `filterText` and `inStockOnly`; handlers passed to SearchBar; products + filter values passed to ProductTable
+- `SearchBar`: controlled text input and “Only show products in stock” checkbox; receives filter state and change handlers via props
+- `ProductTable`: filters `products` by `filterText` and `inStockOnly`; builds rows with `ProductCategoryRow` (per category) and `ProductRow` (per product)
+- Shared type: `Product` interface (e.g. in `types/Products`) used by product data and components
+
+**Exercises / hands-on**
+- Open `FilterableProductTable` in App; use search and “Only show products in stock”
+- Add or edit items in `src/utils/product.ts` and see the table update
+- Optionally add CSS (e.g. `FilterableProductTable.css`) to style the table and search bar
+
+**Notes / tips**
+- One responsibility per component; parent owns shared state and passes it down
+- Define props with TypeScript interfaces (`SearchBarProps`, `ProductTableProps`) for clarity and autocomplete
+
+**Next session**
+- (Add planned topics for next class)
+
+---
+
 *Add new days below using the template above.*
