@@ -7,6 +7,7 @@ import Button from './components/Study/Button'
 import { useState } from 'react'
 import FilterableProductTable from './pages/FilterableProductTable'
 import './assets/css/FilterableProductTable.css'
+import SideEffects from './pages/SideEffects'
 // import './assets/scss/FilterableProductTable.scss'
 
 function App() {
@@ -20,7 +21,8 @@ function App() {
       {/* <Login /> */}
       {/* <Button count={count} handleClick={handleClick} />
       <Button count={count} handleClick={handleClick} /> */}
-      <FilterableProductTable />
+      {/* <FilterableProductTable /> */}
+      <SideEffects />
     </>
   )
 }

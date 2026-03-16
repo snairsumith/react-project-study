@@ -141,4 +141,40 @@ npm run dev    # or yarn dev / pnpm dev
 
 ---
 
+### Day 3 — 11 Mar 2025
+
+**Topics covered**
+- Side effects in React: what they are and when to use them
+- `useEffect` hook: syntax, dependency array, when it runs
+- Fetching data (API call) inside `useEffect` (e.g. Dog API with axios)
+- Cleanup function: why and when (timers, subscriptions); preventing memory leaks
+- Loading state and conditional fetch (e.g. fetch on button click via dependency)
+
+**Key points / concepts**
+- Side effects = work outside React’s render (API calls, timers, DOM, localStorage, subscriptions)
+- `useEffect(fn, deps)`: no deps → every render; `[]` → run once on mount; `[x]` → run when `x` changes
+- Cleanup: return a function from `useEffect`; React runs it on unmount or before re-running the effect (e.g. `clearInterval`, reset state)
+- For API calls: use loading/error state; trigger fetch with state in dependency array (e.g. `[loadDogs]`) or `[]` for mount-only
+
+**Code / examples**
+- `SideEffects.tsx`: `useEffect` with `[loadDogs]` — axios GET to Dog API when “Load Dogs” is clicked; cleanup resets `loadDogs`, `dogs`, `loading`
+- Same page: second `useEffect` with `[]` — `setInterval` for a timer; cleanup returns `clearInterval(timer)`
+- Typing API response: `DogResponse` type for `res.data.data`; optional fields like `country`
+- Detailed notes: `docs/day-to-day-topics/Day-3.md` (useEffect examples, dependency array, cleanup, best practices)
+
+**Exercises / hands-on**
+- Open `SideEffects` page in App; click “Load Dogs” and watch list and loading state
+- Add error state and show a message when the API call fails
+- Try a small timer in a component and confirm it clears on unmount (navigate away)
+
+**Notes / tips**
+- Use cleanup for any subscription or timer so you don’t leak memory or update unmounted components
+- Keep each effect focused (e.g. one effect for API, one for timer); list correct dependencies
+- Install axios if needed: `npm install axios`
+
+**Next session**
+- (Add planned topics for next class)
+
+---
+
 *Add new days below using the template above.*
