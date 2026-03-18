@@ -46,6 +46,7 @@ const SideEffects = () => {
                 setLoading(false)
             });
         }
+        
         return () => {
             setLoadDogs(false)
             setDogs([])

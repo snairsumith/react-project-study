@@ -5,16 +5,20 @@ const Menu = () => {
             href: "/",
         },
         {
-            label: "About",
-            href: "/about",
-        },
-        {
-            label: "Contact",
-            href: "/contact",
-        },
-        {
             label: "Login",
             href: "/login",
+        },
+        {
+            label: "Filter Product",
+            href: "/filter-product",
+        },
+        {
+            label: "Side Effects",
+            href: "/side-effects",
+        },
+        {
+            label: "Data Fetch",
+            href: "/data-fetch",
         },
     ]
 

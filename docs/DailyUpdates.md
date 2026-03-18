@@ -178,3 +178,58 @@ npm run dev    # or yarn dev / pnpm dev
 ---
 
 *Add new days below using the template above.*
+
+---
+
+### Day 4 — 12 Mar 2025
+
+**Topics covered**
+- React Router basics: why routing is needed in an SPA
+- Installing and setting up React Router (`react-router-dom`, `BrowserRouter`)
+- Defining routes using `Routes` and `Route`
+- Navigation using `Link` and programmatic navigation using `useNavigate`
+- URL params with `useParams` and query params with `useSearchParams`
+- Data fetching with `useEffect` + axios (list + detail page flow)
+
+**Key points / concepts**
+- Router setup must be at the app root: wrap `<App />` with `<BrowserRouter>` in `main.tsx`
+- Route mapping is done in `App.tsx` using:
+  - `<Routes>` as the container
+  - `<Route path="..." element={<Component />}/>` for each page
+- Programmatic navigation: `useNavigate()` is useful for “onClick go to details”
+- Dynamic routing:
+  - Route params: `/dog-detail/:dogId` → read with `useParams()`
+  - Query params: `?type=...&size=...` → read with `useSearchParams()`
+- Data fetching pattern:
+  - Use `useEffect(() => {...}, [])` to fetch on mount
+  - Use `useEffect(() => {...}, [dogId])` to refetch when the URL param changes
+  - Track `loading` state and render a loader while waiting
+
+**Code / examples**
+- Router setup: `src/main.tsx` wraps `<App />` with `<BrowserRouter>`
+- Route table: `src/App.tsx`
+  - `/` → Home
+  - `/login` → Login
+  - `/filter-product` → FilterableProductTable
+  - `/side-effects` → SideEffects
+  - `/data-fetch` → DataFetch
+  - `/dog-detail/:dogId` → DogDetail (route param)
+  - `*` → NotFound (404)
+- `DataFetch.tsx`: fetch dogs list from Dog API on mount; click card → `navigate("/dog-detail/<id>?type=...")`
+- `DogDetail.tsx`: read `dogId` with `useParams`; read query params with `useSearchParams`; fetch single dog by id
+- 404 page: `src/pages/404.tsx` uses `Link` back to Home
+- Detailed router notes: `docs/day-to-day-topics/Day-5.md`
+
+**Exercises / hands-on**
+- Add a simple menu/navbar using `Link` to navigate between pages
+- In `DataFetch`, filter the dog list by the search input (case-insensitive)
+- Add error state to `DataFetch` / `DogDetail` and show a friendly message when API fails
+- Try changing the URL param manually in the browser and confirm `DogDetail` refetches (dependency `[dogId]`)
+
+**Notes / tips**
+- Prefer `Link` over `<a href>` to avoid full page reloads
+- Always include correct dependencies in `useEffect`
+- Keep API types (response shape) consistent across list/detail pages
+
+**Next session**
+- (Add planned topics for next class)

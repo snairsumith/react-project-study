@@ -6,24 +6,24 @@
 
 Most modern applications need to **retrieve data from external sources** such as:
 
-* REST APIs
-* Databases
-* Backend servers
-* Third-party services
+- REST APIs
+- Databases
+- Backend servers
+- Third-party services
 
 In React, **data fetching is usually performed when a component mounts**.
 
 The most common approach is using:
 
-* `useEffect`
-* `fetch` API
-* `axios` library
+- `useEffect`
+- `fetch` API
+- `axios` library
 
 ---
 
 # 2. Fetching Data When Component Mounts
 
-To fetch data when a component loads, we use **`useEffect` with an empty dependency array (`[]`)**.
+To fetch data when a component loads, we use `**useEffect` with an empty dependency array (`[]`)**.
 
 This ensures the API call runs **only once when the component mounts**.
 
@@ -104,6 +104,7 @@ function Users() {
         setUsers(response.data);
       });
 
+
   }, []);
 
   return (
@@ -173,9 +174,9 @@ function Users() {
 
 API calls can fail due to:
 
-* Network issues
-* Server errors
-* Invalid responses
+- Network issues
+- Server errors
+- Invalid responses
 
 It is important to **handle errors properly**.
 
@@ -381,6 +382,7 @@ Typical dashboard flow:
 
 # 12. Summary
 
+
 | Concept       | Description                             |
 | ------------- | --------------------------------------- |
 | Data Fetching | Getting data from an API                |
@@ -388,6 +390,7 @@ Typical dashboard flow:
 | Loading State | Shows loading indicator                 |
 | Error State   | Handles API errors                      |
 | Cleanup       | Prevents memory leaks                   |
+
 
 ---
 
@@ -407,9 +410,9 @@ https://jsonplaceholder.typicode.com/users
 
 Display:
 
-* Name
-* Email
-* Company
+- Name
+- Email
+- Company
 
 ---
 
@@ -425,9 +428,10 @@ https://jsonplaceholder.typicode.com/posts
 
 Display:
 
-* Post Title
-* Post Body
+- Post Title
+- Post Body
 
 ---
 
 # End of Lesson
+

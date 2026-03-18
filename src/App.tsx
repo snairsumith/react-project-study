@@ -8,21 +8,26 @@ import { useState } from 'react'
 import FilterableProductTable from './pages/FilterableProductTable'
 import './assets/css/FilterableProductTable.css'
 import SideEffects from './pages/SideEffects'
+import DataFetch from './pages/DataFetch'
 // import './assets/scss/FilterableProductTable.scss'
-
+import { Routes, Route } from 'react-router-dom'
+import NotFound from './pages/404'
+import DogDetail from './pages/DogDetail'
 function App() {
   const [count,setCount] = useState<number>(0);
-  const handleClick = ():void => {
-    setCount(count + 1);
-  }
+ 
   return (
     <>
-      {/* <Home /> */}
-      {/* <Login /> */}
-      {/* <Button count={count} handleClick={handleClick} />
-      <Button count={count} handleClick={handleClick} /> */}
-      {/* <FilterableProductTable /> */}
-      <SideEffects />
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/filter-product" element={<FilterableProductTable />} />
+      <Route path="/side-effects" element={<SideEffects />} />
+      <Route path="/data-fetch" element={<DataFetch />} />
+      <Route path="/dog-detail/:dogId" element={<DogDetail />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+     
     </>
   )
 }
