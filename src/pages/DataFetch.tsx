@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { getDogs } from "../api";
 
 type DogResponse = {
     id: string;
@@ -33,7 +34,7 @@ const DataFetch = () => {
     const navigate = useNavigate();
     useEffect(() => {
         const fetchDogs = async () => {
-            const response = await axios.get("https://dogapi.dog/api/v2/breeds");
+            const response = await getDogs();
             setDogs(response.data.data);
             setLoading(false);
         }

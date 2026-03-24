@@ -177,10 +177,6 @@ npm run dev    # or yarn dev / pnpm dev
 
 ---
 
-*Add new days below using the template above.*
-
----
-
 ### Day 4 — 12 Mar 2025
 
 **Topics covered**
@@ -233,3 +229,46 @@ npm run dev    # or yarn dev / pnpm dev
 
 **Next session**
 - (Add planned topics for next class)
+
+---
+
+### Day 5 — 13 Mar 2025
+
+**Topics covered**
+- **API service layer**: shared axios instance, reusable API functions
+- Environment-based `baseURL` (`import.meta.env.VITE_API_ENDPOINT` with fallback)
+- **Axios interceptors**: attach auth header from `localStorage`; handle `403` (redirect to login)
+- Refactor **DataFetch** and **DogDetail** to call `getDogs()` / `getDogDetail()` instead of hard-coded URLs
+- **Styling in React**: global / feature CSS for menu and login (`main.css`); mix of `className` and inline styles
+
+**Key points / concepts**
+- Centralize HTTP setup in one client (`apiClient`) so base URL, headers, and error handling stay consistent
+- Expose thin functions (`getDogs`, `getDogDetail`) from `src/api/index.ts` so pages stay readable
+- Interceptors: run on every request/response — good for tokens and global error handling
+- Styling: global CSS for shared layout (menu, login); inline styles are OK for small dynamic/layout tweaks (e.g. flex grid in DataFetch)
+- **Note:** `Menu` still uses `<a href>`; for a true SPA, prefer `Link` from React Router (avoids full page reload)
+
+**Code / examples**
+- `src/api/apiClient.ts`: `axios.create({ baseURL: ... })`, request interceptor (`Authorization: Bearer`), response interceptor (`403` → `window.location.href = '/login'`)
+- `src/api/index.ts`: `getDogs()`, `getDogDetail(dogId)`
+- `DataFetch.tsx` → `getDogs()`; `DogDetail.tsx` → `getDogDetail(dogId)`
+- `Home.tsx`: `Menu` + `Banner` + `About` inside `.main-container`
+- `components/Home/Menu.tsx`: menu items from data; classes `menu-container`, `menu-item`, `sub-style` / `no-sub-style`
+- `assets/css/main.css`: `.menu-container`, login styles (`.login-container`, inputs, buttons, messages)
+
+**Exercises / hands-on**
+- Add `.env` with `VITE_API_ENDPOINT` and confirm requests use it
+- Replace `<a href>` in `Menu` with `Link to` and compare behavior (no full reload)
+- Remove unused imports if all requests go through `src/api`
+- Wire `DataFetch` search input to filter the list by dog name (case-insensitive)
+
+**Notes / tips**
+- Use `VITE_` prefix for variables exposed to the browser in Vite
+- Keep API typing (`Dog`, response shape) aligned between list and detail pages
+
+**Next session**
+- (Add planned topics for next class)
+
+---
+
+*Add new days below using the template above.*

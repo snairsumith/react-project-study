@@ -3,11 +3,12 @@ import Banner from "../components/Home/Banner";
 import About from "../components/Home/About";
 
 const Home = () => {
-  return <div>
+  return <div className="main-container">
     <Menu />
     <Banner />
     <About />
   </div>;
 };
+
 
 export default Home;

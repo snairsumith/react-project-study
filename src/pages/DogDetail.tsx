@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
+import { getDogDetail } from "../api";
 
 export interface Dog {
     id: string;
@@ -36,11 +37,11 @@ const DogDetail = () => {
     useEffect(() => {
         const fetchDog = async () => {
             try {
-                const response = await axios.get(`https://dogapi.dog/api/v2/breeds/${dogId}`);
+                const response = await getDogDetail(dogId || '');
                 setDog(response.data.data);
             }
             catch (error) {
-
+                console.log(error)
             }
             finally {
                 setLoading(false)
