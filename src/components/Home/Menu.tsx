@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Menu = () => {
     const menuItems = [
         {
@@ -25,6 +27,11 @@ const Menu = () => {
             href: "/data-fetch",
             isSub: true,
         },
+        {
+            label: "React Hooks",
+            href: "/react-hooks",
+            isSub: true,
+        },
     ]
 
     return <div className="menu-container">
@@ -37,9 +44,9 @@ const Menu = () => {
                     //     borderRadius: '5px',
                     // }}
                     >
-                    <a href={i.href} style={{ textDecoration: 'none', color: '#333', padding: '10px' }}>
+                    <Link to={i.href} style={{ textDecoration: 'none', color: '#333', padding: '10px' }}>
                         {i.label}
-                    </a>
+                    </Link>
                 </li>
             ))}
         </ul>

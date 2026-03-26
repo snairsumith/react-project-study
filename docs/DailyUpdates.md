@@ -271,4 +271,56 @@ npm run dev    # or yarn dev / pnpm dev
 
 ---
 
+### Day 6 — 14 Mar 2025
+
+**Topics covered**
+- React Hooks practical session: `useContext`, `useRef`, `useState`, `useEffect`
+- Theme management using Context API (`ThemeProvider`, `useTheme`)
+- Building a dedicated React Hooks page (`/react-hooks`) with theme-based UI
+- DOM access and manipulation with `useRef` (focus input + update element style)
+
+**Key points / concepts**
+- Context setup:
+  - `createContext<ThemeContextValue | null>(null)`
+  - Provider exposes `theme` and `toggleTheme`
+  - Custom hook `useTheme()` validates provider usage
+- `useTheme` guard pattern:
+  - throws error if context is missing (`useTheme must be used within ThemeProvider`)
+- `useRef` usage patterns:
+  - focus input on mount (`inputRef.current?.focus()`)
+  - reference DOM node (`divRef`) and update style based on `count`
+- `useEffect` with dependencies:
+  - `[]` for mount-only behavior (focus input)
+  - `[count]` to react to state updates (change color red/blue)
+
+**Code / examples**
+- `src/components/ReactHooks/ReactContext.tsx`
+  - `Theme` type (`light | dark`)
+  - `ThemeContextValue` type (`theme`, `toggleTheme`)
+  - `ThemeProvider` + `useTheme` custom hook
+- `src/components/ReactHooks/ReactRef.tsx`
+  - `count` state
+  - `inputRef` for autofocus
+  - `divRef` to dynamically set background color (`count < 10` -> red, else blue)
+- `src/pages/ReactHooks.tsx`
+  - consumes `useTheme`
+  - applies theme class: `light-theme` / `dark-theme`
+  - renders `Menu`, `ReactRef`, and `Toggle Theme` button
+
+**Exercises / hands-on**
+- Add a third theme option (e.g. `system`) and update context types
+- Persist selected theme in `localStorage` and restore on page load
+- In `ReactRef`, add a button to scroll a referenced section into view
+- Replace direct DOM style mutation with conditional `className` based on state
+
+**Notes / tips**
+- Keep provider at app/root level so every route can consume the same context
+- Use custom hooks (`useTheme`) to keep context usage clean and safe
+- Prefer state-driven classes for styling when possible; use direct ref DOM updates only when required
+
+**Next session**
+- (Add planned topics for next class)
+
+---
+
 *Add new days below using the template above.*

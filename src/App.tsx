@@ -13,20 +13,25 @@ import DataFetch from './pages/DataFetch'
 import { Routes, Route } from 'react-router-dom'
 import NotFound from './pages/404'
 import DogDetail from './pages/DogDetail'
+import ReactHooks from './pages/ReactHooks'
+import { ThemeProvider } from './components/ReactHooks/ReactContext'
 function App() {
   const [count,setCount] = useState<number>(0);
  
   return (
     <>
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/filter-product" element={<FilterableProductTable />} />
-      <Route path="/side-effects" element={<SideEffects />} />
-      <Route path="/data-fetch" element={<DataFetch />} />
-      <Route path="/dog-detail/:dogId" element={<DogDetail />} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+    <ThemeProvider>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/filter-product" element={<FilterableProductTable />} />
+        <Route path="/side-effects" element={<SideEffects />} />
+        <Route path="/data-fetch" element={<DataFetch />} />
+        <Route path="/dog-detail/:dogId" element={<DogDetail />} />
+        <Route path="/react-hooks" element={<ReactHooks />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </ThemeProvider>
      
     </>
   )

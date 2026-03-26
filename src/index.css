@@ -86,3 +86,13 @@ button:focus-visible {
 .no-sub-style {
     background-color: #0e836c !important;
 }
+
+.light-theme {
+    background-color: #929292;
+    color: #000000;
+}
+
+.dark-theme {
+    background-color: #000000;
+    color: #ffffff;
+}

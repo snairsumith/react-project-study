@@ -40,7 +40,7 @@ const DataFetch = () => {
         }
         fetchDogs();
     }, []);
-   
+
 
     return (
         <div>
