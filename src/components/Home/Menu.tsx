@@ -32,6 +32,16 @@ const Menu = () => {
             href: "/react-hooks",
             isSub: true,
         },
+        {
+            label: "Use Memo Test",
+            href: "/use-memo-test",
+            isSub: true,
+        },
+        {
+            label: "Combined Real World Pattern",
+            href: "/combined-real-world-pattern",
+            isSub: true,
+        },
     ]
 
     return <div className="menu-container">

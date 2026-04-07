@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getDogs } from "../api";
 
@@ -40,6 +40,11 @@ const DataFetch = () => {
         }
         fetchDogs();
     }, []);
+    const filteredDogs = useMemo(() => {
+        return dogs.filter(dog => dog.attributes.name.toLowerCase().includes(search.toLowerCase()));
+    }, [dogs, search]);
+
+
 
 
     return (
@@ -49,7 +54,7 @@ const DataFetch = () => {
             <input type="text" placeholder="Search by name" onChange={(e) => setSearch(e.target.value)} />
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
                 
-            {dogs.map((dog) => (
+            {filteredDogs.map((dog) => (
                 <div key={dog.id} style={{ border: '1px solid black', padding: '10px', margin: '10px',width: '250px',cursor:'pointer' }} onClick={() => navigate(`/dog-detail/${dog.id}?type=${dog.type}&size=12&life=2`)}>
                     <h2>{dog.attributes.name}</h2>
                     <p>{dog.type}</p>

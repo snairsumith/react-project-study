@@ -10,10 +10,12 @@ const FilterableProductTable = () => {
    
 
     const handleFilterTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        console.log("filterText changed");
         setFilterText(e.target.value);
     }
 
     const handleInStockOnlyChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        console.log("inStockOnly changed");
         setInStockOnly(e.target.checked);
     }
 

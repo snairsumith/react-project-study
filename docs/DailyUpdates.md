@@ -323,4 +323,43 @@ npm run dev    # or yarn dev / pnpm dev
 
 ---
 
+### Day 7 — 15 Mar 2025
+
+**Topics covered**
+- `useMemo` for memoizing derived values (search + filtered list)
+- `useEffect + useMemo + useCallback` combined real-world pattern
+- `React.memo` and why stable props matter (avoid unnecessary re-renders)
+
+**Key points / concepts**
+- `useMemo` memoizes a **value** (example: filtered list) and recomputes only when dependencies change
+- `useCallback` memoizes a **function reference** and helps when passing callbacks to memoized children
+- `useEffect` is for **side effects** (example: fetching data on mount)
+- `React.memo` prevents child re-render when props are referentially equal
+- Dependency arrays should include every value used inside the memo/effect callback that can change
+
+**Code / examples**
+- `src/pages/UesMemoTest.tsx`
+  - `query` state + `useMemo` to compute `filteredItems`
+  - renders result count and list based on memoized filter
+- `src/pages/CombinedRealWorldPattern.tsx`
+  - `useEffect([])` fetch users on mount
+  - `useMemo([users, query])` compute `filteredUsers`
+  - `useCallback([])` memoize `handleSelectUser`
+  - `UserList` wrapped with `React.memo` to reduce re-renders
+
+**Exercises / hands-on**
+- In `UesMemoTest`, increase list size to simulate expensive filtering and compare behavior with/without `useMemo`
+- Add a button that changes unrelated state and verify `filteredItems` does not recompute unnecessarily
+- In `CombinedRealWorldPattern`, log renders in `UserList` and observe the difference when removing `useCallback`
+- Add a `loading` state to the fetch and show a loader before users are loaded
+
+**Notes / tips**
+- Use memoization only when it solves a real issue (expensive compute or stable props for memoized children)
+- `useMemo` does not “make code faster” by default; it trades memory/complexity for fewer recalculations
+
+**Next session**
+- (Add planned topics for next class)
+
+---
+
 *Add new days below using the template above.*

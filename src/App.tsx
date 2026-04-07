@@ -15,6 +15,8 @@ import NotFound from './pages/404'
 import DogDetail from './pages/DogDetail'
 import ReactHooks from './pages/ReactHooks'
 import { ThemeProvider } from './components/ReactHooks/ReactContext'
+import UesMemoTest from './pages/UesMemoTest'
+import CombinedRealWorldPattern from './pages/CombinedRealWorldPattern'
 function App() {
   const [count,setCount] = useState<number>(0);
  
@@ -29,6 +31,8 @@ function App() {
         <Route path="/data-fetch" element={<DataFetch />} />
         <Route path="/dog-detail/:dogId" element={<DogDetail />} />
         <Route path="/react-hooks" element={<ReactHooks />} />
+        <Route path="/use-memo-test" element={<UesMemoTest />} />
+        <Route path="/combined-real-world-pattern" element={<CombinedRealWorldPattern />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </ThemeProvider>
