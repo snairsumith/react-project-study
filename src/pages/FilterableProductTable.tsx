@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import ProductTable from "../components/FilterableProductTable/ProductTable";
 import SearchBar from "../components/FilterableProductTable/SearchBar";
 import { products } from "../utils/product";

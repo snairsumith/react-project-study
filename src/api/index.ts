@@ -7,3 +7,6 @@ export const getDogs = () => {
 export const getDogDetail = (dogId: string) => {
     return apiClient.get(`/breeds/${dogId}`);
 }
+export const getEvents=()=>{
+    return apiClient.get('/events');
+}

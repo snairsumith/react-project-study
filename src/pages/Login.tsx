@@ -19,16 +19,13 @@ const Login = () => {
     }
   return <div className="login-container">
         <p>Username</p>
-        <input type="text" className="login-input" value={username} onChange={(e) => setUsername(e.target.value)} />
+        <input type="text" className="login-input" value={username} onChange={(e) => setUsername(e.target.value)}  />
+        {username}
         <p>Password</p>
         <input type="password" className="login-input" value={password} onChange={(e) => setPassword(e.target.value)} />
         <button className="login-button" onClick={handleLogin}>Login</button>
-        {
-            isSuccess && <p className="login-success-msg"> {msg}</p>
-        }
-        {
-            !isSuccess && <p className="login-error-msg">{msg}</p>
-        }
+        {isSuccess && <p className="login-success-msg"> {msg}</p>}
+        {!isSuccess && <p className="login-error-msg">{msg}</p>}
     </div>;
 };
 export default Login;

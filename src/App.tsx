@@ -17,15 +17,22 @@ import ReactHooks from './pages/ReactHooks'
 import { ThemeProvider } from './components/ReactHooks/ReactContext'
 import UesMemoTest from './pages/UesMemoTest'
 import CombinedRealWorldPattern from './pages/CombinedRealWorldPattern'
+import Login2 from './page2/Login'
+import Home1 from './page2/Home/Home'
+import { MantineProvider } from '@mantine/core'
 function App() {
   const [count,setCount] = useState<number>(0);
  
   return (
     <>
+    <MantineProvider>
     <ThemeProvider>
+     
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/login2" element={<Login2 />} />
+        <Route path="/home-1" element={<Home1 />} />
         <Route path="/filter-product" element={<FilterableProductTable />} />
         <Route path="/side-effects" element={<SideEffects />} />
         <Route path="/data-fetch" element={<DataFetch />} />
@@ -36,6 +43,7 @@ function App() {
         <Route path="*" element={<NotFound />} />
       </Routes>
     </ThemeProvider>
+    </MantineProvider>
      
     </>
   )

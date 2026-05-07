@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { type Dog } from "../../types/Dogs";
 
 type DogResponse = {
 

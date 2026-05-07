@@ -1,0 +1,35 @@
+.login-container {
+    background-color: #494646;
+    height: 300px;
+    width: 300px;
+    margin: 250px auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-container h1 {
+    color: #ffffff;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.login-container input {
+    width: 200px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #b88424;
+}
+
+.error-msg {
+    color: #ff0000;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.success-msg {
+    color: #00ff00;
+    font-size: 12px;
+    margin-bottom: 10px;
+}

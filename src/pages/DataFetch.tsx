@@ -29,7 +29,7 @@ type DogResponse = {
 const DataFetch = () => {
     const [dogs, setDogs] = useState<DogResponse[]>([]);
     const [loading, setLoading] = useState(true);
-    const [loadDogs, setLoadDogs] = useState(false);
+    // const [loadDogs, setLoadDogs] = useState(false);
     const [search, setSearch] = useState('');
     const navigate = useNavigate();
     useEffect(() => {
