@@ -1,10 +1,8 @@
 
 import './App.css'
-import Home from './pages/Home'
 import './assets/css/main.css'
 import Login from './pages/Login'
-import Button from './components/Study/Button'
-import { useState } from 'react'
+import { lazy, Suspense } from 'react'
 import FilterableProductTable from './pages/FilterableProductTable'
 import './assets/css/FilterableProductTable.css'
 import SideEffects from './pages/SideEffects'
@@ -19,9 +17,13 @@ import UesMemoTest from './pages/UesMemoTest'
 import CombinedRealWorldPattern from './pages/CombinedRealWorldPattern'
 import Login2 from './page2/Login'
 import Home1 from './page2/Home/Home'
-import { MantineProvider } from '@mantine/core'
+// import Home from './pages/Home'
+import {  MantineProvider } from '@mantine/core'
+import DataFetchV2 from './page2/DataFetch/DataFetch'
+import Loading from './components/Loading/Loading'
+
+const HomePage = lazy(() => import('./pages/Home'))
 function App() {
-  const [count,setCount] = useState<number>(0);
  
   return (
     <>
@@ -29,10 +31,12 @@ function App() {
     <ThemeProvider>
      
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Suspense fallback={<Loading message="Loading Home Page..." />}><HomePage /></Suspense>} />
+        {/* <Route path="/" element={<Home />} /> */}
         <Route path="/login" element={<Login />} />
         <Route path="/login2" element={<Login2 />} />
         <Route path="/home-1" element={<Home1 />} />
+        <Route path="/data-fetch-v2" element={<DataFetchV2 />} />
         <Route path="/filter-product" element={<FilterableProductTable />} />
         <Route path="/side-effects" element={<SideEffects />} />
         <Route path="/data-fetch" element={<DataFetch />} />

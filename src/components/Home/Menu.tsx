@@ -42,6 +42,11 @@ const Menu = () => {
             href: "/combined-real-world-pattern",
             isSub: true,
         },
+        {
+            label: "Data Fetch V2",
+            href: "/data-fetch-v2",
+            isSub: true,
+        },
     ]
 
     return <div className="menu-container">

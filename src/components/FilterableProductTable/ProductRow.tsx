@@ -1,4 +1,3 @@
-import React from "react";
 import type { Product } from "../../../types/Products";
 const ProductRow = ({ product }: { product: Product }) => {
     const name = product.stocked ? product.name :

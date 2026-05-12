@@ -83,9 +83,7 @@ const Home1 = () => {
     const handleAdd = () => {
         setResult(firstNo + secondNo);
     }   
-    const handleMouseEnter = () => {
-        console.log("Mouse entered");
-    }
+   
     const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if(e.key === 'Enter') {
             handleAdd();
